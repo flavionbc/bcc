@@ -1,4 +1,4 @@
-package br.paysecure.bcc.enums;
+package com.paysecure.bcc.enums;
 
 public enum UrlEnum {
 	

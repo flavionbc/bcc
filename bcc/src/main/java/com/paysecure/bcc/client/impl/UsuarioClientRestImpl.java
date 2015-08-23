@@ -6,8 +6,7 @@ import org.springframework.web.client.RestTemplate;
 import com.paysecure.bcc.client.AbstractRestClient;
 import com.paysecure.bcc.client.UsuarioClientRest;
 import com.paysecure.bcc.dto.Usuario;
-
-import br.paysecure.bcc.enums.UrlEnum;
+import com.paysecure.bcc.enums.UrlEnum;
 
 @Service("usuarioClienteRest")
 public class UsuarioClientRestImpl extends AbstractRestClient implements UsuarioClientRest {
@@ -15,9 +14,14 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 	@Override
 	public Usuario autenticar(String cpf, String senha){
 		RestTemplate rest = getRestTemplate();
-		String url = getUrl(UrlEnum.USUARIO_URL.getUrl(), cpf, senha);
-		Usuario usuario = rest.getForObject(url, Usuario.class);
-		return usuario;
+		try{
+			String url = getUrl(UrlEnum.USUARIO_URL.getUrl(), cpf, senha);
+			Usuario usuario = rest.getForObject(url, Usuario.class);
+			return usuario;
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return null;
 	}
 
 }

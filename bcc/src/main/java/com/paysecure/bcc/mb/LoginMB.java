@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 
 import com.paysecure.bcc.client.UsuarioClientRest;
 import com.paysecure.bcc.dto.Usuario;
+import com.paysecure.bcc.util.JsfUtil;
+import com.paysecure.bcc.util.SessaoUtil;
 
 @Controller
 @ManagedBean(name="loginMB")
@@ -26,8 +28,12 @@ public class LoginMB implements Serializable{
 	
 	public void loginIn(){
 		Usuario usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
-		System.out.println(usuario.getNome());
-		System.out.println("teste");
+		if(usuario != null){
+			SessaoUtil.adicionarLoginSessao(usuario);
+			JsfUtil.redirecionarUsuario("/index.html");	
+		}
+		
+		// informar erro login.
 	}
 
 	public String getSenha() {

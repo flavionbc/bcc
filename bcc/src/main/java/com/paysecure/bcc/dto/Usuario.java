@@ -24,7 +24,6 @@ public class Usuario implements Serializable {
 	private Date dataTrocaSenha;
 	
 	public Usuario(){
-		
 	}
 	
 	public UsuarioPK getId() {
