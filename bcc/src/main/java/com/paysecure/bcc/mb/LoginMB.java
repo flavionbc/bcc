@@ -33,7 +33,7 @@ public class LoginMB implements Serializable{
 		Usuario usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
 		if(usuario != null){
 			SessaoUtil.adicionarLoginSessao(usuario);
-			log.warn("Usuario logado: "+usuario.getNome());
+			log.info("Usuario logado: "+usuario.getNome());
 			JsfUtil.redirecionarUsuario("/index.html");	
 		}
 		
