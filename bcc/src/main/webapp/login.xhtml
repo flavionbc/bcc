@@ -9,12 +9,26 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
-  <h:body>
-  	<ui:composition template="template/layout.xhtml" >
-	<ui:define name="conteudo">
-	<h:form>
-		<div class="middle-box text-center loginscreen animated fadeInDown">
-			<div>
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>TrustPay IT - BCC</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+    <link href="css/animate.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+    <h:form>
+        <div>
 				<div>
 
 					<h1 class="logo-name">BCC</h1>
@@ -35,11 +49,13 @@
 					<small>Pay Secure - Banking Card Control Administration</small>
 				</p>
 			</div>
-		</div>
-		</h:form>
-		</ui:define>
-	</ui:composition>
+	</h:form>
+    </div>
 
-</h:body>
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
 
 </html>

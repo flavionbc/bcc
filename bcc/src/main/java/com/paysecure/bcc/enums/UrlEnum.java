@@ -2,7 +2,7 @@ package com.paysecure.bcc.enums;
 
 public enum UrlEnum {
 	
-	USUARIO_URL(1, "http://localhost:8080/bcc-services/api/v1/usuario");
+	USUARIO_URL(1, "http://localhost:8080/bcc-services/api/usuario");
 	//USUARIO_URL(1, "http://localhost:8080/bcc-services/api/v1/usuario");
 	
 	private Integer codigo;
