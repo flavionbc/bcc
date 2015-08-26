@@ -34,7 +34,7 @@ public class LoginMB implements Serializable{
 		if(usuario != null){
 			SessaoUtil.adicionarLoginSessao(usuario);
 			log.info("Usuario logado: "+usuario.getNome());
-			JsfUtil.redirecionarUsuario("/index.html");	
+			JsfUtil.redirecionarUsuario("/index.xhtml");	
 		}
 		
 		// informar erro login.
