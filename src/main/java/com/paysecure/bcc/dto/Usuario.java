@@ -3,16 +3,10 @@ package com.paysecure.bcc.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Id;
-
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection="usuario")
 public class Usuario implements Serializable {
 
-	private static final long serialVersionUID = 3651368666907404913L;
+	private static final long serialVersionUID = 6304191555852946052L;
 	
-	@Id
 	private UsuarioPK id;
 	private Long idPerfil;
 	private String nome;

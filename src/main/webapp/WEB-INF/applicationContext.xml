@@ -16,16 +16,17 @@
 
 	<context:component-scan base-package="com.paysecure.bcc.*" />
 	
+	<context:annotation-config/>
+	<mvc:annotation-driven/>
+	<mvc:default-servlet-handler/>
+	
+	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".xhtml" />
+	</bean>
+	
   	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
   	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
-		<property name="scopes">
-			<map>
-				<entry key="view">
-					<bean class="com.paysecure.bcc.scope.ViewScope" />
-				</entry>
-			</map>
-		</property>
-	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<tx:annotation-driven />
 </beans>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pp="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="template/template_interno.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+				
+				<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>Pagina Inicial</h2>
+                    <!-- ≈
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">Pagina I</a>
+                        </li>
+                        <li class="active">
+                            <strong>Breadcrumb</strong>
+                        </li>
+                    </ol>
+                    -->
+                </div>
+                <div class="col-sm-8">
+                    <div class="title-action">
+                        <a href="index.xhtml" class="btn btn-primary">Seja Bem Vindo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper wrapper-content">
+                <div class="middle-box text-center animated fadeInRightBig">
+   
+                    <h:dataTable styleClass="table table-striped table-hover" value="#{clienteMB.clientes}" var="cliente" >
+						<h:column>
+							#{cliente.nomeFantasia}
+						</h:column>
+					</h:dataTable>
+                    
+                </div>
+            </div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

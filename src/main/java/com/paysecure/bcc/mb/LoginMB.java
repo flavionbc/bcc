@@ -16,7 +16,7 @@ import com.paysecure.bcc.util.SessaoUtil;
 
 @Controller
 @ManagedBean(name="loginMB")
-@Scope("view")
+//@Scope("view")
 public class LoginMB implements Serializable{
 	
 	private static final long serialVersionUID = 3898173124729955356L;
