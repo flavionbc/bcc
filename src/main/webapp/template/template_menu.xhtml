@@ -7,7 +7,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:pp="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
-	
+
+	<h:form>	
 	    <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
@@ -77,7 +78,6 @@
                     </ul>
                 </li>
                 
-                <h:form>
                 <li>
                     <a href="#"><i class="fa fa-desktop"></i> 
                     <span class="nav-label">App Views</span></a>
@@ -88,8 +88,7 @@
                         <li><a href="project_detail.html">Project detail</a></li>
                         <li><a href="teams_board.html">Teams board</a></li>
                         <li><a href="social_feed.html">Social feed</a></li>
-                        <li><a href="clientes.xhtml">Clientes</a></li>
-                        <li><h:commandLink value="Clientes2" actionListener="#{clienteMB.buscar()}" /></li>
+                        <li><h:commandLink value="Clientes" actionListener="#{clienteMB.buscar()}" /></li>
                         <li><a href="full_height.html">Outlook view</a></li>
                         <li><a href="file_manager.html">File manager</a></li>
                         <li><a href="calendar.html">Calendar</a></li>
@@ -101,7 +100,6 @@
                         <li><a href="pin_board.html">Pin board</a></li>
                     </ul>
                 </li>
-                </h:form>
                 
                 <li class="active">
                     <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span></a>
@@ -221,5 +219,6 @@
 
         </div>
     </nav>
+  </h:form>
 	
 </html>	

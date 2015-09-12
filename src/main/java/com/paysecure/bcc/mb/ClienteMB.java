@@ -1,6 +1,5 @@
 package com.paysecure.bcc.mb;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -9,12 +8,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import org.apache.log4j.Logger;
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.paysecure.bcc.client.impl.ClienteRestImpl;
 import com.paysecure.bcc.dto.Cliente;
-import com.paysecure.bcc.enums.StatusClienteEnum;
 import com.paysecure.bcc.util.JsfUtil;
 
 @Controller
@@ -27,17 +25,12 @@ public class ClienteMB {
 	private @Getter @Setter Cliente cliente;
 	private @Getter @Setter List<Cliente> clientes;
 	
+	@Autowired
 	private ClienteRestImpl service;
 	
 	public void buscar(){
 		log.info("Buscando clientes...");
-		cliente = new Cliente();
-		cliente.setNomeFantasia("BANCO ALEXANDRE SA");
-		cliente.setId(1L);
-		cliente.setUf("DF");
-		cliente.setStatusCliente(StatusClienteEnum.ATIVO);
-		clientes = new ArrayList<Cliente>();
-		clientes.add(cliente);
+		clientes = service.buscar();
 		JsfUtil.redirecionarUsuario("/clientes.xhtml");
 	}
 	
