@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="title-action">
-                        <a href="clienteEdit.xhtml" class="btn btn-primary"><i class="fa fa-plus"></i> Novo Usuário</a>
+                        <h:commandButton value="Novo Usuário" action="#{clienteMB.novo()}" styleClass="btn btn-primary" />
                     </div>
                 </div>
             </div>
@@ -54,7 +54,9 @@
                                         
                     <h:dataTable styleClass="table table-striped table-hover" value="#{clienteMB.clientes}" var="_cliente" >
 						<h:column>
-							#{_cliente.nomeFantasia}
+							<h:commandLink action="#{clienteMB.selecionar()}" value="#{_cliente.nomeFantasia}">
+								<f:setPropertyActionListener target="#{clienteMB.cliente}" value="#{_cliente}" />
+							</h:commandLink>
 						</h:column>
 						<h:column>
 							#{_cliente.uf}
@@ -72,7 +74,7 @@
             </div>
 			</div>
 			</div>
-			    </div>
+			</div>
             </div>
 			</div>
 			</div>
