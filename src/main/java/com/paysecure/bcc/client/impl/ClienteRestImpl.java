@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,14 +12,24 @@ import com.paysecure.bcc.client.AbstractRestClient;
 import com.paysecure.bcc.dto.Cliente;
 import com.paysecure.bcc.enums.StatusClienteEnum;
 import com.paysecure.bcc.enums.UrlEnum;
+import com.paysecure.bcc.util.ClienteValidator;
+import com.paysecure.bcc.util.JsfUtil;
 
 @Service
 public class ClienteRestImpl extends AbstractRestClient {
 
 	Logger log = Logger.getLogger(ClienteRestImpl.class);
 	
+	@Autowired private ClienteValidator validador;
+	
 	public boolean cadastrar(Cliente cliente){
 		log.info("Cadastrando clinte...");
+		String mensagem = validador.validarDados(cliente);
+		
+		if(mensagem != null){
+			JsfUtil.addMsgGrowlError(mensagem, null);
+			return false;
+		}
 		
 		try{
 			RestTemplate rest = getRestTemplate();

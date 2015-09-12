@@ -34,7 +34,7 @@ public class ClienteMB {
 	{
 		int i = 0;
 		for(StatusClienteEnum s : StatusClienteEnum.values()){
-			status[i++] = new SelectItem(s.getCodigo(), s.getDescricao());
+			status[i++] = new SelectItem(s, s.getDescricao());
 		}
 	}
 	
