@@ -17,16 +17,6 @@
 				<div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-sm-4">
                     <h2>Pagina Inicial</h2>
-                    <!-- â‰ˆ
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="index.html">Pagina I</a>
-                        </li>
-                        <li class="active">
-                            <strong>Breadcrumb</strong>
-                        </li>
-                    </ol>
-                    -->
                 </div>
                 <div class="col-sm-8">
                     <div class="title-action">
@@ -34,19 +24,58 @@
                     </div>
                 </div>
             </div>
-
-            <div class="wrapper wrapper-content">
-                <div class="middle-box text-center animated fadeInRightBig">
-   
-                    <h:dataTable styleClass="table table-striped table-hover" value="#{clienteMB.clientes}" var="cliente" >
+			
+	 <div class="wrapper wrapper-content  animated fadeInRight">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h2>Usuários e Clientes</h2>
+                            <p>
+                                All clients need to be verified before you can send email and set a project.
+                            </p>
+                            <div class="input-group">
+                                <input type="text" placeholder="Search client " class="input form-control" />
+                                <span class="input-group-btn">
+                                        <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> Search</button>
+                                </span>
+                            </div>
+			<div class="clients-list">
+                <ul class="nav nav-tabs">
+                    <span class="pull-right small text-muted">1406 Elements</span>
+                    <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Usuários</a></li>
+                    <li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i> Clientes</a></li>
+                </ul>
+			
+   			<div class="tab-content">
+                                <div id="tab-2" class="tab-pane active">
+                                    <div class="full-height-scroll">
+                                        <div class="table-responsive">
+                                        
+                    <h:dataTable styleClass="table table-striped table-hover" value="#{clienteMB.clientes}" var="_cliente" >
 						<h:column>
-							#{cliente.nomeFantasia}
+							#{_cliente.nomeFantasia}
+						</h:column>
+						<h:column>
+							#{_cliente.uf}
+						</h:column>
+						<h:column>
+							<span class="label label-primary">
+								#{_cliente.statusCliente.descricao}
+							</span>
 						</h:column>
 					</h:dataTable>
-                    
+                    </div>
+                   </div>
                 </div>
             </div>
-
+			</div>
+			</div>
+			    </div>
+            </div>
+			</div>
+			</div>
+			
 			</h:form>
 		</ui:define>
 	</ui:composition>
