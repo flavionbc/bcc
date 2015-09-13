@@ -1,12 +1,13 @@
 package com.paysecure.bcc.mb;
 
-import java.io.Serializable;
-
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.paysecure.bcc.client.UsuarioClientRest;
@@ -16,18 +17,16 @@ import com.paysecure.bcc.util.SessaoUtil;
 
 @Controller
 @ManagedBean(name="loginMB")
-//@Scope("view")
-public class LoginMB implements Serializable{
-	
-	private static final long serialVersionUID = 3898173124729955356L;
+@ViewScoped
+public class LoginMB {
 
 	@Autowired
 	private UsuarioClientRest usuarioClienteRest;
 	
-	private Logger log = Logger.getLogger(LoginMB.class.getName());
+	private Logger log = Logger.getLogger(LoginMB.class);
 	
-	private String cpf;
-	private String senha;
+	private @Getter @Setter String cpf;
+	private @Getter @Setter String senha;
 	
 	public void loginIn(){
 		Usuario usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
@@ -35,25 +34,10 @@ public class LoginMB implements Serializable{
 			SessaoUtil.adicionarLoginSessao(usuario);
 			log.info("Usuario logado: "+usuario.getNome());
 			JsfUtil.redirecionarUsuario("/index.xhtml");	
+		}else{
+			JsfUtil.addMsgGrowlError("Usuário/Senha inválidos.", null);
 		}
-		
-		// informar erro login.
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 }

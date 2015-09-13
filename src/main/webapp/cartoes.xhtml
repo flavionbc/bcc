@@ -6,7 +6,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:pp="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
@@ -19,12 +18,16 @@
                     <h2>Cartões e Configurações</h2>
                 </div>
             </div>
-        <div class="wrapper wrapper-content animated fadeIn">
+            
+    <ui:repeat value="#{usuarioMB.usuario.cartoes}" var="_cartao" >
+                            
             <div class="row">
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5 class="fa fa-credit-card"> 4850.****.****.4590</h5>
+                        <h5 class="fa fa-credit-card">
+                        	<h:outputText value="  #{formatador.mascararCartao(_cartao.numero)}" />
+                        </h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up" title="Ocultar"></i>
@@ -140,12 +143,14 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="showEasing">Validade</label>
-                                    <input id="showEasing" type="text" placeholder="Validade" class="form-control" value="12/2020"/>
+                                    <h:inputText id="showEasing" placeholder="Validade" class="form-control" value="#{_cartao.dataValidade}" >
+                                    	<f:convertDateTime pattern="MM/yyyy"/>
+                                    </h:inputText>
                                 </div>
                                 <div class="form-group">
 
                                     <label for="hideEasing">CVV</label>
-                                    <input id="hideEasing" type="text" placeholder="CVV" class="form-control" value="256"/>
+                                    <h:inputText id="hideEasing" placeholder="CVV" class="form-control" value="#{_cartao.cvv}"/>
                                 </div>
                             </div>
 
@@ -164,29 +169,18 @@
                         <div class="row">
                             <div class="col-lg-12">
                             <button type="button" class="btn btn-primary" id="showtoast">Salvar</button>
-                            <button type="button" class="btn btn-white" id="cleartoasts">Novo Cartão</button>
-                            <button type="button" class="btn btn-white" id="clearlasttoast">Clear Last Toast</button>
-                            <button type="button" class="btn btn-white" id="showsimple">Show simple options</button>
                             </div>
                         </div>
-
-                        <div class="row m-t-lg">
-                            <div class="col-lg-12">
-                            <small>Toastr Options in JSON</small>
-                            <pre id="toastrOptions" class="p-m"></pre>
                         </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
-            </div>
-        </div>
-
-			</h:form>
-		</ui:define>
-	</ui:composition>
-
-</h:body>
-
+       </ui:repeat>
+       
+       <h:commandLink action="#" value="Novo Cartão" styleClass="btn btn-primary" />
+       
+     </h:form>
+   </ui:define>
+  </ui:composition>
+ </h:body>
 </html>

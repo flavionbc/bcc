@@ -30,13 +30,14 @@
     <h:form>
         <div>
 				<div>
-
 					<h1 class="logo-name">BCC</h1>
-
 				</div>
+				
 				<h3>Seja Bem Vindo ao Portal Banking Card Control</h3>
 
 				<p>Faça login para acessar seu portal de administração</p>
+				<h:message errorClass="alert alert-error" role="alert" />
+				
 					<div class="form-group">
 						<h:inputText value="#{loginMB.cpf}" styleClass="form-control" pt:placeholder="Digite seu cpf" required="true"/>
 					</div>
@@ -45,6 +46,7 @@
 					</div>
 					
 					<h:commandButton styleClass="btn btn-primary block full-width m-b" actionListener="#{loginMB.loginIn()}" value="Login" />
+				
 				<p class="m-t">
 					<small>Pay Secure - Banking Card Control Administration</small>
 				</p>

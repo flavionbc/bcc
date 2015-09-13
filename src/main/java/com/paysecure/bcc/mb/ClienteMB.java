@@ -3,6 +3,7 @@ package com.paysecure.bcc.mb;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
 import lombok.Getter;
@@ -19,7 +20,7 @@ import com.paysecure.bcc.util.JsfUtil;
 
 @Controller
 @ManagedBean(name="clienteMB")
-//@Scope("view")
+@ViewScoped
 public class ClienteMB {
 
 	Logger log = Logger.getLogger(ClienteMB.class);
