@@ -37,7 +37,7 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 		Usuario u = new Usuario();
 		
 		u.setNome("ALEXANDRE DIAS BRIGIDO");
-		u.setCpf("01205720103");
+		u.setCpf("123");
 		u.setSenha("123");
 		
 		List<Cartao> cartoes = new ArrayList<Cartao>();

@@ -11,7 +11,6 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 4467118608241157679L;
 	
-	private UsuarioPK id;
 	private Long idPerfil;
 	private String nome;
 	private String cpf;
@@ -22,5 +21,6 @@ public class Usuario implements Serializable {
 	private Date dataTrocaSenha;
 	private Date dataUltimoAcesso;
 	private List<Cartao> cartoes;
+	private Cliente cliente;
 	
 }

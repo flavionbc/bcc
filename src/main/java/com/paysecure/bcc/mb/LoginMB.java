@@ -1,5 +1,7 @@
 package com.paysecure.bcc.mb;
 
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -31,6 +33,7 @@ public class LoginMB {
 	public void loginIn(){
 		Usuario usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
 		if(usuario != null){
+			usuario.setDataUltimoAcesso(new Date());
 			SessaoUtil.adicionarLoginSessao(usuario);
 			log.info("Usuario logado: "+usuario.getNome());
 			JsfUtil.redirecionarUsuario("/index.xhtml");	
