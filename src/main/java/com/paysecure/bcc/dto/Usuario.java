@@ -1,12 +1,13 @@
 package com.paysecure.bcc.dto;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Usuario implements Serializable {
+import lombok.Data;
 
-	private static final long serialVersionUID = 6304191555852946052L;
-	
+@Data
+public class Usuario {
+
 	private UsuarioPK id;
 	private Long idPerfil;
 	private String nome;
@@ -16,84 +17,6 @@ public class Usuario implements Serializable {
 	private Date dataCanelado;
 	private String senha;
 	private Date dataTrocaSenha;
-	
-	public Usuario(){
-	}
-	
-	public UsuarioPK getId() {
-		return id;
-	}
-
-	public void setId(UsuarioPK id) {
-		this.id = id;
-	}
-
-	public Long getIdPerfil() {
-		return idPerfil;
-	}
-
-	public void setIdPerfil(Long idPerfil) {
-		this.idPerfil = idPerfil;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public Date getDataUltimoAcesso() {
-		return dataUltimoAcesso;
-	}
-
-	public void setDataUltimoAcesso(Date dataUltimoAcesso) {
-		this.dataUltimoAcesso = dataUltimoAcesso;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	public Date getDataCanelado() {
-		return dataCanelado;
-	}
-
-	public void setDataCanelado(Date dataCanelado) {
-		this.dataCanelado = dataCanelado;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public Date getDataTrocaSenha() {
-		return dataTrocaSenha;
-	}
-
-	public void setDataTrocaSenha(Date dataTrocaSenha) {
-		this.dataTrocaSenha = dataTrocaSenha;
-	}
-	
-	public String getSequenceName() {
-		return "SEQUENCE_USUARIO";
-	}
+	private List<Cartao> cartoes;
 	
 }
