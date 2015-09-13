@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Cartao {
 
-	private Integer numero;
+	private String numero;
 	private Integer cvv;
 	private Date dataValidade;
 	private Usuario usuario;
