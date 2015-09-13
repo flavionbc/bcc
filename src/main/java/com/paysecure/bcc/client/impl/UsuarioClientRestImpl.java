@@ -25,7 +25,7 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 		try{
 			//String url = getUrl(UrlEnum.USUARIO_URL.getUrl(), cpf, senha);
 			//Usuario usuario = rest.getForObject(url, Usuario.class);
-			return getUser();
+			return getUser(cpf, senha);
 		}catch(Exception ex){
 			log.error(ex.getMessage());
 			ex.printStackTrace();
@@ -33,12 +33,12 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 		return null;
 	}
 	
-	private Usuario getUser(){
+	private Usuario getUser(String cpf, String senha){
 		Usuario u = new Usuario();
 		
-		u.setCpf("01205720103");
 		u.setNome("ALEXANDRE DIAS BRIGIDO");
-		u.setSenha("12345");
+		u.setCpf("01205720103");
+		u.setSenha("123");
 		
 		List<Cartao> cartoes = new ArrayList<Cartao>();
 		Cartao c1 = new Cartao();
@@ -55,7 +55,10 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 		
 		u.setCartoes(cartoes);
 		
-		return u;
+		if(u.getCpf().equals(cpf) && u.getSenha().equals(senha)){
+			return u;
+		}
+		return null;
 	}
 
 }

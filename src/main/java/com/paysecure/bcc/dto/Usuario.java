@@ -15,11 +15,12 @@ public class Usuario implements Serializable {
 	private Long idPerfil;
 	private String nome;
 	private String cpf;
-	private Date dataUltimoAcesso;
-	private Integer status;
-	private Date dataCanelado;
 	private String senha;
+	private Integer status;
+	private Date dataCriacao;
+	private Date dataCanelado;
 	private Date dataTrocaSenha;
+	private Date dataUltimoAcesso;
 	private List<Cartao> cartoes;
 	
 }

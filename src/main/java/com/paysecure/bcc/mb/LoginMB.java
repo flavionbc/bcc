@@ -38,6 +38,11 @@ public class LoginMB {
 			JsfUtil.addMsgGrowlError("Usuário/Senha inválidos.", null);
 		}
 	}
+	
+	public void logout(){
+		SessaoUtil.encerrarSessao();
+		JsfUtil.redirecionarUsuario("/login.xhtml");
+	}
 
 
 }
