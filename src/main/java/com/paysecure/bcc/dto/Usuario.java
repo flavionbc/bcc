@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class Usuario {
 	
+	private Long id;
 	private Perfil perfil;
 	private String nome;
 	private String cpf;

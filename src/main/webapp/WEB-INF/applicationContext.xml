@@ -14,6 +14,9 @@
 			http://www.springframework.org/schema/context
 			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<import resource="spring-data-conf.xml"/>
+	<import resource="spring-security-conf.xml"/>
+	
 	<context:component-scan base-package="com.paysecure.bcc.*" />
 	
 	<context:annotation-config/>
@@ -27,6 +30,7 @@
 	
   	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
   	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+  	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 	
 	<tx:annotation-driven />
 </beans>

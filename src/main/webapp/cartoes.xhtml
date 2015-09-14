@@ -40,11 +40,6 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                         <label for="title">Bandeira</label>
-                                        <h:selectOneMenu value="#{_cartao.bandeira}" styleClass="form-control m-b" id="bandeira">
-	                                    	<f:selectItems value="#{usuarioMB.bandeiras}" />
-	                                    </h:selectOneMenu>
-	                                    
-	                                    
                                         <h:inputText id="title" class="form-control" value="#{_cartao.bandeira.nome}" />
                                     </div>
                                 <div class="form-group">
@@ -53,9 +48,9 @@
                                         </textarea>
                                 </div>
                                 
-	                                <label for="title">Habilitado para:</label>
+	                                <label>Habilitado para:</label>
                                     <div class="checkbox">
-                                        <label class="checkbox" for="closeButton">
+                                        <label class="checkbox checkbox-primary" for="closeButton">
                                             <input id="closeButton" type="checkbox" value="checked" class="input-mini" />E-Commerce
                                         </label>
                                     </div>
