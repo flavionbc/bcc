@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -50,6 +51,7 @@ public class LoginMB implements AuthenticationProvider {
 	
 	public void logout(){
 		SessaoUtil.encerrarSessao();
+		logoutSpring();
 		JsfUtil.redirecionarUsuario("/login.xhtml");
 	}
 
@@ -71,4 +73,11 @@ public class LoginMB implements AuthenticationProvider {
         SecurityContextHolder.getContext().setAuthentication(token);
 	}
 
+	private void logoutSpring(){
+		// Limpa o contexto do usuário spring:
+		SecurityContextHolder.clearContext();
+		// Limpa os dados de login:
+		senha = null;
+		cpf = null;
+	}
 }

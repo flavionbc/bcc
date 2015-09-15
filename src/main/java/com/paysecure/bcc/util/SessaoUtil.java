@@ -20,6 +20,7 @@ public class SessaoUtil {
 				.getSession(true);
 		httpSession = (HttpSession) ctx.getExternalContext().getSession(false);
 		httpSession.setAttribute("usuarioSessao", null);
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	}
 
 	public static void adicionarLoginSessao(Usuario usu) {
