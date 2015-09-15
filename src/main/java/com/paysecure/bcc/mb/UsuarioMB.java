@@ -41,7 +41,7 @@ public class UsuarioMB {
 	
 	public void selecionar(){
 		if(usuario != null){
-			JsfUtil.redirecionarUsuario("/usuarioEdit.xhtml");
+			JsfUtil.redirecionarUsuario("/interno/usuarioEdit.xhtml");
 		}
 	}
 	

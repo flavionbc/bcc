@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 import com.paysecure.bcc.client.AbstractRestClient;
 import com.paysecure.bcc.client.UsuarioClientRest;
 import com.paysecure.bcc.dto.Cartao;
+import com.paysecure.bcc.dto.Funcionalidade;
+import com.paysecure.bcc.dto.Perfil;
 import com.paysecure.bcc.dto.Usuario;
 import com.paysecure.bcc.enums.UrlEnum;
 
@@ -55,6 +57,18 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 		
 		u.setCartoes(cartoes);
 		
+		Perfil p = new Perfil();
+		p.setId(1);
+		p.setDescricao("ADMIN");
+		
+		Funcionalidade f = new Funcionalidade();
+		f.setId(1);
+		f.setDescricao("INTERNO");
+		List<Funcionalidade> funs = new ArrayList<Funcionalidade>();
+		funs.add(f);
+		p.setFuncionalidades(funs);
+		
+		u.setPerfil(p);
 		if(u.getCpf().equals(cpf) && u.getSenha().equals(senha)){
 			return u;
 		}

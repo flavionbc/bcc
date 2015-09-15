@@ -10,7 +10,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<ui:composition template="template/template_interno.xhtml">
+	<ui:composition template="../template/template_interno.xhtml">
 		<ui:define name="conteudo">
 			<h:form>
 			
@@ -116,7 +116,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                    	<a href="index.xhtml" class="btn btn-white">Cancelar</a>
+                                    	<a href="interno/index.xhtml" class="btn btn-white">Cancelar</a>
                                         <h:commandLink action="#{usuarioMB.cadastrar()}" value="Salvar" styleClass="btn btn-info" />
                                     </div>
                                 </div>

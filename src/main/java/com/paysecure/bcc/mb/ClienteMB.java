@@ -43,17 +43,17 @@ public class ClienteMB {
 	public void buscar(){
 		log.info("Buscando clientes...");
 		clientes = service.buscar();
-		JsfUtil.redirecionarUsuario("/clientes.xhtml");
+		JsfUtil.redirecionarUsuario("/interno/clientes.xhtml");
 	}
 	
 	public void novo(){
 		cliente = new Cliente();
-		JsfUtil.redirecionarUsuario("/clienteEdit.xhtml");
+		JsfUtil.redirecionarUsuario("/interno/clienteEdit.xhtml");
 	}
 	
 	public void selecionar(){
 		if(cliente != null){
-			JsfUtil.redirecionarUsuario("/clienteEdit.xhtml");
+			JsfUtil.redirecionarUsuario("/interno/clienteEdit.xhtml");
 		}
 	}
 	
