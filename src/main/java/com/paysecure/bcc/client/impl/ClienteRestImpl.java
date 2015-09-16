@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,6 +35,8 @@ public class ClienteRestImpl extends AbstractRestClient {
 		
 		try{
 			RestTemplate rest = getRestTemplate();
+			rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+            rest.getMessageConverters().add(new StringHttpMessageConverter());
 			String url = getUrl(UrlEnum.CLIENTE_URL.getUrl(), "inserir");
 			rest.postForObject(url, cliente, Cliente.class);
 			log.info("Cadastro realizado");
@@ -70,5 +74,13 @@ public class ClienteRestImpl extends AbstractRestClient {
 		clientes.add(cliente3);
 		
 		return clientes;
+	}
+
+	public boolean alterar(Cliente cliente) {
+		return true;
+	}
+
+	public boolean excluir(Cliente cliente) {
+		return true;
 	}
 }

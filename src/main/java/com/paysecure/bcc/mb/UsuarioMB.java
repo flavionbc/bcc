@@ -1,56 +1,76 @@
 package com.paysecure.bcc.mb;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.model.SelectItem;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import com.paysecure.bcc.client.impl.PerfilRestImpl;
+import com.paysecure.bcc.client.impl.UsuarioClientRestImpl;
 import com.paysecure.bcc.dto.Perfil;
 import com.paysecure.bcc.dto.Usuario;
 import com.paysecure.bcc.enums.StatusUsuarioEnum;
 import com.paysecure.bcc.util.JsfUtil;
 import com.paysecure.bcc.util.SessaoUtil;
 
-@ManagedBean
 @ViewScoped
+@Controller
+@ManagedBean
 public class UsuarioMB {
 
 	private @Getter @Setter Usuario usuario;
 	private @Getter @Setter List<Perfil> perfis;
-	private @Getter @Setter SelectItem[] status = new SelectItem[StatusUsuarioEnum.values().length];
+	private @Getter @Setter List<StatusUsuarioEnum> status;
+	
+	@Autowired private UsuarioClientRestImpl service;
+	@Autowired private PerfilRestImpl servicePerfil;
 	
 	{
-		usuario = SessaoUtil.getUsuarioSessao();
-		int i = 0;
-		for(StatusUsuarioEnum s : StatusUsuarioEnum.values()){
-			status[i++] = new SelectItem(s, s.toString());
-		}
+		status = Arrays.asList(StatusUsuarioEnum.values());
 	}
 	
 	private void carregarPerfis(){
-		
+		perfis = servicePerfil.buscarPerfis();
 	}
 	
 	public void carregarFuncionalidadesPorPerfil(){
 		
 	}
 	
+	public void criarNovo(){
+		carregarPerfis();
+		usuario = new Usuario();
+	}
+	
 	public void selecionar(){
+		usuario = SessaoUtil.getUsuarioSessao();
 		if(usuario != null){
 			JsfUtil.redirecionarUsuario("/interno/usuarioEdit.xhtml");
 		}
 	}
 	
 	public void cadastrar(){
-		
+		if(service.cadastrar(usuario)){
+			JsfUtil.addMsgGrowlSucesso("Usuário cadastrado com sucesso!", null);
+		}else{
+			JsfUtil.addMsgGrowlError("Não foi possível cadastrar o usuário", null);
+		}
 	}
 	
 	public void excluir(){
-		
+		if(service.excluir(usuario)){
+			JsfUtil.addMsgGrowlSucesso("Usuário excluído com sucesso!", null);
+		}else{
+			JsfUtil.addMsgGrowlError("Não foi possível excluir o usuário", null);
+		}
+	
 	}
 	
 	public void buscar(){

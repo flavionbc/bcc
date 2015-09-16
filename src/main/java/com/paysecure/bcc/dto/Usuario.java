@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.paysecure.bcc.enums.StatusUsuarioEnum;
+
 import lombok.Data;
 
 @Data
@@ -18,7 +20,7 @@ public class Usuario implements UserDetails {
 	private String nome;
 	private String cpf;
 	private String senha;
-	private Integer status;
+	private StatusUsuarioEnum status;
 	private Date dataCriacao;
 	private Date dataCanelado;
 	private Date dataTrocaSenha;
@@ -40,11 +42,11 @@ public class Usuario implements UserDetails {
 	}
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return getStatus().equals(StatusUsuarioEnum.ATIVO);
 	}
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return getStatus().equals(StatusUsuarioEnum.ATIVO);
 	}
 	@Override
 	public boolean isCredentialsNonExpired() {
@@ -52,7 +54,7 @@ public class Usuario implements UserDetails {
 	}
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return getStatus().equals(StatusUsuarioEnum.ATIVO);
 	}
 	
 }

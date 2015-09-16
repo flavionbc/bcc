@@ -1,10 +1,10 @@
 package com.paysecure.bcc.mb;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.model.SelectItem;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,25 +18,21 @@ import com.paysecure.bcc.dto.Cliente;
 import com.paysecure.bcc.enums.StatusClienteEnum;
 import com.paysecure.bcc.util.JsfUtil;
 
+@ViewScoped
 @Controller
 @ManagedBean(name="clienteMB")
-@ViewScoped
 public class ClienteMB {
 
 	Logger log = Logger.getLogger(ClienteMB.class);
 	
 	private @Getter @Setter Cliente cliente;
 	private @Getter @Setter List<Cliente> clientes;
+	private @Getter @Setter List<StatusClienteEnum> status;
 	
-	@Autowired private ClienteRestImpl service;
-	
-	private @Getter @Setter SelectItem[] status = new SelectItem[StatusClienteEnum.values().length];
+	@Autowired private ClienteRestImpl service;	
 	
 	{
-		int i = 0;
-		for(StatusClienteEnum s : StatusClienteEnum.values()){
-			status[i++] = new SelectItem(s, s.getDescricao());
-		}
+		status = Arrays.asList(StatusClienteEnum.values());
 	}
 	
 	
@@ -59,18 +55,28 @@ public class ClienteMB {
 	
 	public void cadastrar(){
 		if(service.cadastrar(cliente)){
-			JsfUtil.addMsgGrowlSucesso("Cadastro Realizado com Sucesso!", null);
+			JsfUtil.addMsgGrowlSucesso("Cadastro realizado com Sucesso!", null);
 		}else{
 			JsfUtil.addMsgGrowlError("Não foi possível realizar o cadastro", null);
 		}
 	}
 	
 	public void alterar(){
-		
+		if(service.alterar(cliente)){
+			JsfUtil.addMsgGrowlSucesso("Cadastro atualizado com Sucesso!", null);
+		}else{
+			JsfUtil.addMsgGrowlError("Não foi possível atualizar o cadastro", null);
+		}
+	
 	}
 	
 	public void excluir(){
-		
+		if(service.excluir(cliente)){
+			JsfUtil.addMsgGrowlSucesso("Cadastro excluído com Sucesso!", null);
+		}else{
+			JsfUtil.addMsgGrowlError("Não foi possível excluir o cadastro", null);
+		}
+	
 	}
 	
 	

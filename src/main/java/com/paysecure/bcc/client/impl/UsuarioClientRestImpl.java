@@ -75,4 +75,12 @@ public class UsuarioClientRestImpl extends AbstractRestClient implements Usuario
 		return null;
 	}
 
+	public boolean cadastrar(Usuario usuario) {
+		return true;
+	}
+
+	public boolean excluir(Usuario usuario) {
+		return true;
+	}
+
 }

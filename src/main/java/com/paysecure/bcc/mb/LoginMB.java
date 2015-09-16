@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,9 +22,9 @@ import com.paysecure.bcc.dto.Usuario;
 import com.paysecure.bcc.util.JsfUtil;
 import com.paysecure.bcc.util.SessaoUtil;
 
+@ViewScoped
 @Controller
 @ManagedBean(name="loginMB")
-@ViewScoped
 public class LoginMB implements AuthenticationProvider {
 
 	@Autowired
@@ -35,9 +34,10 @@ public class LoginMB implements AuthenticationProvider {
 	
 	private @Getter @Setter String cpf;
 	private @Getter @Setter String senha;
+	private @Getter @Setter Usuario usuario;
 	
 	public void loginIn(){
-		Usuario usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
+		usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
 		if(usuario != null){
 			usuario.setDataUltimoAcesso(new Date());
 			SessaoUtil.adicionarLoginSessao(usuario);
