@@ -6,29 +6,11 @@
 		<welcome-file>login.xhtml</welcome-file>
 	</welcome-file-list>
 	
-	<filter>
-	<filter-name>encoding-filter</filter-name>
-	<filter-class>
-	org.springframework.web.filter.CharacterEncodingFilter
-	</filter-class>
-	<init-param>
-	<param-name>encoding</param-name>
-	<param-value>UTF-8</param-value>
-	</init-param>
-	<init-param>
-	<param-name>forceEncoding</param-name>
-	<param-value>true</param-value>
-	</init-param>
-	</filter>
 	<mime-mapping>
 		<extension>ico</extension>
 		<mime-type>image/x-icon</mime-type>
 	</mime-mapping>
 	  
-	  <context-param>
-	    <param-name>com.sun.faces.writeStateAtFormEnd</param-name>
-	    <param-value>false</param-value>
-	  </context-param>
 	  <servlet>
 	    <servlet-name>Faces Servlet</servlet-name>
 	    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -38,11 +20,13 @@
 	    <servlet-name>Faces Servlet</servlet-name>
 	    <url-pattern>*.xhtml</url-pattern>
 	  </servlet-mapping>
+	  
 	  <context-param>
 	    <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
 	    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 	    <param-value>server</param-value>
 	  </context-param>
+	  
 	  <context-param>
 	    <param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
 	    <param-value>client</param-value>
@@ -80,7 +64,7 @@
 	</listener>
 
 
-	<!-- Início das configurações para o Spring Security 3 -->
+	<!-- Inicio da configuracao para o Spring Security 3 -->
 	<filter>
 	    <filter-name>springSecurityFilterChain</filter-name>
 	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -89,6 +73,6 @@
 	    <filter-name>springSecurityFilterChain</filter-name>
 	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<!-- Fim das configuração para utilizar o Spring Security 3 -->
+	<!-- Fim da configuracao para utilizar o Spring Security 3 -->
 	
 </web-app>

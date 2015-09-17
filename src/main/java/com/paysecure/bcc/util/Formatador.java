@@ -9,7 +9,7 @@ import com.paysecure.bcc.dto.Cartao;
 @ManagedBean
 public class Formatador {
 	
-	public String mascararCartao(String cartao){
+	public String mascararNumeroCartao(String cartao){
 		return cartao.substring(0, 4) + ".****.****." + cartao.substring(12);
 	}
 	
