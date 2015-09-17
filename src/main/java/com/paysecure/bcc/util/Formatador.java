@@ -1,5 +1,7 @@
 package com.paysecure.bcc.util;
 
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 
 import com.paysecure.bcc.dto.Cartao;
@@ -15,4 +17,7 @@ public class Formatador {
 		return cartao.getNumero().substring(0, 4) + ".****.****." + cartao.getNumero().substring(12);
 	}
 
+	public Date dia(){
+		return new Date();
+	}
 }
