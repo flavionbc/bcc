@@ -7,12 +7,12 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import com.paysecure.bcc.client.AbstractRestClient;
+import com.paysecure.bcc.client.AbstractRest;
 import com.paysecure.bcc.dto.Cliente;
 import com.paysecure.bcc.enums.StatusClienteEnum;
 import com.paysecure.bcc.enums.UrlEnum;
 
-public class TesteRest extends AbstractRestClient {
+public class TesteRest extends AbstractRest {
 
 	
 	public static void main(String[] args) {

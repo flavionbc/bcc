@@ -79,5 +79,6 @@ public class LoginMB implements AuthenticationProvider {
 		// Limpa os dados de login:
 		senha = null;
 		cpf = null;
+		usuario = null;
 	}
 }

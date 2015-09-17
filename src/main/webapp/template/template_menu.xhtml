@@ -38,7 +38,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="cartoes.xhtml"><i class="fa fa-credit-card"></i> <span class="nav-label">Cartões</span></a>
+                    <h:commandLink action="#{usuarioMB.buscarCartaoLogado()}" styleClass="nav-label">
+                		<i class="fa fa-credit-card"></i>
+                		<h:outputText value="Cartões" />
+                	</h:commandLink>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>

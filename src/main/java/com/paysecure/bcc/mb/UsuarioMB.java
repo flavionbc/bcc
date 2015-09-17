@@ -76,4 +76,13 @@ public class UsuarioMB {
 	public void buscar(){
 		
 	}
+	
+	/** 
+	 * Busca os cartoes do usuario que esta logado
+	 * e redireciona para a pagina de cartoes
+	 *  */
+	public void buscarCartaoLogado(){
+		usuario = SessaoUtil.getUsuarioSessao();
+		JsfUtil.redirecionarUsuario("/interno/cartoes.xhtml");
+	}
 }

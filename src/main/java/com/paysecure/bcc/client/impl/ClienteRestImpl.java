@@ -10,15 +10,16 @@ import org.springframework.http.converter.json.MappingJacksonHttpMessageConverte
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.paysecure.bcc.client.AbstractRestClient;
+import com.paysecure.bcc.client.AbstractRest;
 import com.paysecure.bcc.dto.Cliente;
+import com.paysecure.bcc.enums.Metodo;
 import com.paysecure.bcc.enums.StatusClienteEnum;
 import com.paysecure.bcc.enums.UrlEnum;
 import com.paysecure.bcc.util.ClienteValidator;
 import com.paysecure.bcc.util.JsfUtil;
 
 @Service
-public class ClienteRestImpl extends AbstractRestClient {
+public class ClienteRestImpl extends AbstractRest {
 
 	Logger log = Logger.getLogger(ClienteRestImpl.class);
 	
@@ -37,7 +38,7 @@ public class ClienteRestImpl extends AbstractRestClient {
 			RestTemplate rest = getRestTemplate();
 			rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
             rest.getMessageConverters().add(new StringHttpMessageConverter());
-			String url = getUrl(UrlEnum.CLIENTE_URL.getUrl(), "inserir");
+			String url = getUrl(UrlEnum.CLIENTE_URL.getUrl(), Metodo.INSERIR.getValor());
 			rest.postForObject(url, cliente, Cliente.class);
 			log.info("Cadastro realizado");
 			return true;

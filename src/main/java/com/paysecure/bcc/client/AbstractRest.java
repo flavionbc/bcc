@@ -2,7 +2,7 @@ package com.paysecure.bcc.client;
 
 import org.springframework.web.client.RestTemplate;
 
-public class AbstractRestClient {
+public class AbstractRest {
 	
 	private static final String PARENTESES = "/";
 	
