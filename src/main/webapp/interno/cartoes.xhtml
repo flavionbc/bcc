@@ -19,7 +19,7 @@
                 </div>
             </div>
             <br />
-    <ui:repeat value="#{usuarioMB.usuario.cartoes}" var="_cartao" >
+    <ui:repeat value="#{loginMB.usuario.cartoes}" var="_cartao" >
                             
             <div class="row">
                 <div class="col-lg-12">
@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                         <label for="title">Bandeira</label>
                                         <h:inputText id="title" class="form-control" value="#{_cartao.bandeira.nome}" />
-                                    </div>
+                                </div>
                                 <div class="form-group">
                                         <label for="message">Detalhes</label>
                                         <textarea class="form-control" id="message" rows="3" placeholder="Enter a message ...">Cartão de Crédito Visa emitido pelo Banco Alexandre SA
@@ -49,9 +49,9 @@
                                 </div>
                                 
 	                                <label>Habilitado para:</label>
-                                    <div class="checkbox">
-                                        <label class="checkbox checkbox-primary" for="closeButton">
-                                            <input id="closeButton" type="checkbox" value="checked" class="input-mini" />E-Commerce
+                                    <div class="i-checks">
+                                        <label>
+                                            <input id="closeButton" type="checkbox" value="checked" /><i></i> E-Commerce
                                         </label>
                                     </div>
                                     <div class="checkbox">

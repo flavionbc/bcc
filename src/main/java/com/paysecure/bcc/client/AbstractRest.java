@@ -1,5 +1,7 @@
 package com.paysecure.bcc.client;
 
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 public class AbstractRest {
@@ -7,7 +9,10 @@ public class AbstractRest {
 	private static final String PARENTESES = "/";
 	
 	public RestTemplate getRestTemplate(){
-		return new RestTemplate();
+		RestTemplate rest = new RestTemplate();
+		rest.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+        rest.getMessageConverters().add(new StringHttpMessageConverter());
+		return rest;
 	}
 	
 	public String getUrl(String url, String... parametros){

@@ -64,11 +64,11 @@ public class UsuarioMB {
 		}
 	}
 	
-	public void excluir(){
-		if(service.excluir(usuario)){
-			JsfUtil.addMsgGrowlSucesso("Usuário excluído com sucesso!", null);
+	public void alterar(){
+		if(service.alterar(usuario)){
+			JsfUtil.addMsgGrowlSucesso("Usuário alterado com sucesso!", null);
 		}else{
-			JsfUtil.addMsgGrowlError("Não foi possível excluir o usuário", null);
+			JsfUtil.addMsgGrowlError("Não foi possível alterar o usuário", null);
 		}
 	
 	}

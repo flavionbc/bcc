@@ -35,7 +35,7 @@ public class TesteRest extends AbstractRest {
 			RestTemplate rt = getRestTemplate();
 			rt.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
             rt.getMessageConverters().add(new StringHttpMessageConverter());
-			String url = getUrl(UrlEnum.CLIENTE_URL.getUrl(), "inserir");
+			String url = getUrl(UrlEnum.CLIENTE_URL.getUrl(), "insert");
 			rt.postForObject(url, c, Cliente.class);
 		}catch(Exception ex){
 			ex.printStackTrace();

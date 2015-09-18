@@ -18,7 +18,7 @@
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold" title="Nome Usuário">#{loginMB.usuario.nome}</strong>
                              </span> <span class="text-muted text-xs block">Perfil BCC <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><h:commandLink actionListener="#{usuarioMB.selecionar()}" value="Info Cadastro" /></li>
+                            <li><h:commandLink action="#{usuarioMB.selecionar()}" value="Info Cadastro" /></li>
                             <li><a href="">Trocar Senha</a></li>
                             <li class="divider"></li>
                             <li><h:commandLink action="#{loginMB.logout()}" value="Logout" /></li>
@@ -29,17 +29,26 @@
                     </div>
                 </li>
                 <li>
-                    <h:commandLink actionListener="#{usuarioMB.buscarCartaoLogado()}" styleClass="nav-label">
+                	<a href="cartoes.xhtml"><i class="fa fa-credit-card"></i><span class="nav-label">Cartões</span></a>
+                </li>
+                <li>
+                	<a href="clientes.xhtml"><i class="fa fa-user"></i><span class="nav-label">Clientes</span></a>
+                </li>
+                
+                <ui:remove>
+                <li>
+                    <h:commandLink action="#{usuarioMB.buscarCartaoLogado()}" styleClass="nav-label">
                 		<i class="fa fa-credit-card"></i>
                 		<h:outputText value="Cartões" />
                 	</h:commandLink>
                 </li>
                 <li>
-                    <h:commandLink actionListener="#{clienteMB.buscar()}" styleClass="nav-label">
+                    <h:commandLink action="#{clienteMB.buscar()}" styleClass="nav-label">
                 		<i class="glyphicon glyphicon-user"></i>
                 		<h:outputText value="Clientes" />
                 	</h:commandLink>
                 </li>
+                </ui:remove>
             </ul>
         </div>
     </nav>
