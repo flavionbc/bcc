@@ -36,13 +36,15 @@
 				<h3>Seja Bem Vindo ao Portal Banking Card Control</h3>
 
 				<p>Faça login para acessar seu portal de administração</p>
-				<h:message errorClass="alert alert-error" role="alert" />
-				
+				<h:messages errorClass="alert alert-danger" role="alert" />
+
 					<div class="form-group">
-						<h:inputText value="#{loginMB.cpf}" styleClass="form-control" pt:placeholder="Digite seu cpf" required="true"/>
+						<h:inputText value="#{loginMB.cpf}" styleClass="form-control" placeholder="Digite seu cpf" required="true"
+						 	requiredMessage="Por favor, digite seu CPF."	/>
 					</div>
 					<div class="form-group">
-						<h:inputSecret value="#{loginMB.senha}" styleClass="form-control" pt:placeholder="Digite sua senha" required="true"/>
+						<h:inputSecret value="#{loginMB.senha}" styleClass="form-control" placeholder="Digite sua senha" required="true"
+							requiredMessage="Por favor, digite sua senha." />
 					</div>
 					
 					<h:commandButton styleClass="btn btn-primary block full-width m-b" actionListener="#{loginMB.loginIn()}" value="Login" />
