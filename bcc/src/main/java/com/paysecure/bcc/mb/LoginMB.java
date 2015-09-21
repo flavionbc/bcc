@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -24,7 +23,7 @@ public class LoginMB implements Serializable{
 	@Autowired
 	private UsuarioClientRest usuarioClienteRest;
 	
-	private Logger log = Logger.getLogger(LoginMB.class.getName());
+	//private Logger log = Logger.getLogger(LoginMB.class.getName());
 	
 	private String cpf;
 	private String senha;
@@ -33,7 +32,7 @@ public class LoginMB implements Serializable{
 		Usuario usuario = usuarioClienteRest.autenticar(getCpf(), getSenha());
 		if(usuario != null){
 			SessaoUtil.adicionarLoginSessao(usuario);
-			log.info("Usuario logado: "+usuario.getNome());
+		//	log.info("Usuario logado: "+usuario.getNome());
 			JsfUtil.redirecionarUsuario("/index.xhtml");	
 		}
 		

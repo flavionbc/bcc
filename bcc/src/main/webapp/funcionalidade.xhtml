@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pp="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="template/template_interno.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+				
+				<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2>Funcionalidades</h2>
+                    <!-- ≈
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">Pagina I</a>
+                        </li>
+                        <li class="active">
+                            <strong>Breadcrumb</strong>
+                        </li>
+                    </ol>
+                    -->
+                </div>
+                <div class="col-sm-8">
+                    <div class="title-action">
+                        <a href="index.xhtml" class="btn btn-primary">Cadastre sua funcionalidade</a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+            <div class="col-lg-7">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Cadastro de funcionalidades</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+<!--                             <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul> -->
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+             
+					<div class="col-sm-12 b-r">
+						<form role="form">
+							<div class="form-group">
+								<label>Funcionalidade</label> 
+								 <h:inputText value="#{funcionalidadeMB.label}" styleClass="form-control" pt:placeholder="Digite o nome da funcionalidade" required="true"/>
+							</div>
+							 <div class="form-group">
+								<label>URL</label>
+								 <h:inputText value="#{funcionalidadeMB.url}" styleClass="form-control" pt:placeholder="Digite a URL da funcionalidade" required="true"/>
+							</div>
+							
+							<h:commandButton styleClass="btn btn-primary block full-width m-b" actionListener="#{funcionalidadeMB.cadastrar()}" value="Cadastrar" />
+						</form>
+					</div>
+
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					</div>
+					</div>
+					
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
